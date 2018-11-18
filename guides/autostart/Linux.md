@@ -21,10 +21,8 @@ Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=tedicross
-User=tedicross
-Group=tedicross
-Environment=TELEGRAM_BOT_TOKEN=secret
-Environment=DISCORD_BOT_TOKEN=secret
+User=heimdall
+Group=heimdall
 
 [Install]
 WantedBy=multi-user.target
@@ -33,8 +31,6 @@ WantedBy=multi-user.target
 Adjust the file to suit your needs. I have Heimdall running as a dedicated user `heimdall`, but you can use any user. `root` will work, but is NOT recommended!
 
 Also point `WorkingDirectory` to wherever your Heimdall files are
-
-You can, if you want to, supply the bot tokens through the service file. Put them at their respective lines in the file. This requires that `token` in TediCross' `settings.json` is set to `"env"`. If you prefer to give the tokens through `settings.json`, just remove the two lines starting with `Environment`
 
 When you are happy with the file, run the command `systemctl enable heimdall`. This activates the service. You can then control the service and check its status with the commands `systemctl start|stop|restart|status heimdall` (pick one of the middle words).
 
